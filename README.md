@@ -1,1 +1,3 @@
-# ru-research-seminar-data-science-23-24
+# Research Seminar Data Science 2023/2024
+
+This repository contains the completed assignments for the Radboud University course [NWI-IMC044 Research Seminar Data Science](https://www.ru.nl/courseguides/science/master/master-computing-science/specialisation-data-science/structure-master-specialisation-data-science/) for the school year 2023-2024 as made by [Daan Brugmans](https://github.com/daanbrugmans).
