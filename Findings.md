@@ -7,9 +7,19 @@
   - For GNN explainability, we want to point to specific subgraphs of the input graph. We want to be able to pinpoint the specific neighborhood of nodes that results in specific decision-making of the GNN.
   - Current GNN explainability methods rely on the construction or generation of subgraphs that explain decision-making for a graph. However, these methods may produce subgraphs that do not fall within the distribution of the input graphs. These are out-of-distribution (sub)graphs.
 - Graph diffusion models are a recent development capable of generating (sub)graphs from noise that are in-distribution.
+  - In diffusion, noise is introduced step-wise to the input until the input is all noise. Then, a model attempts to learn to remove the noise introduced in every step by going through the steps backwards, removing noise as it goes. After training, a diffusion model can be supplied a collection of noise and "denoise" it, even if the noise is purely random and does not exist on top of an input. This means that diffusion models can generate data based on noise. A well-known example is the generation of images from noise.
+  - The diffusion process can also be applied to graphs: noise is introduced step-wise to a graph, then a model learns to remove the noise at every step. After training, the model is able to generate graphs from noise.
+  - Since the diffusion model is trained unsupervised on a dataset, learning to approximate the distribution of the data it trained on, diffusion models are capable of generating in-distribution data for many kinds of data, including images and graphs.
 
 # Proposal Made
-
+- The proposal made by the authors is D4Explainer.
+  - D4Explainer is a graph diffusion model. D4Explainer is trained using the diffusion process. In the forward diffusion process, noise is added step-wise to an in-distribution graph. This noise consists of ... . In the backwards denoising process, the model learns to step-wise remove this noise. 
+  - By including both generative graph distribution learning and the preservation of the counterfactual property into the model's loss function, the model can be learned to generate in-distribution subgraphs that serve as counterfactual explanations.
+  - When trained on eight different datasets, D4Explainer has shown state-of-the-art performance for counterfactual and model-level explanations of GNNs. It achieves a counterfactual accuracy of over 80% when only 5% of the edges are modified. Compared with baselines of GNN explanation models, D4Explainer's explanations come closest to the datasets' original distributions.
+- The proposal offers three contributions:
+  1. Using the diffusion process, a model is taught to generate in-distribution graphs from noise. These graphs are then in-distribution, diverse, and robust explanations of a GNN's decision-making.
+  2. By allowing the addition of edges in a graph during the diffusion process, the diffusion model can be taught to give counterfactual explanations, since it learns how small changes in graph structure changes predictions. This provides a high-level understanding of the effect of edge addition in counterfactual explanations.
+  3. The diffusion model is the first graph diffusion model capable of both counterfactual and model-level explanations that are faithful.
 
 # Evidence Given
 
