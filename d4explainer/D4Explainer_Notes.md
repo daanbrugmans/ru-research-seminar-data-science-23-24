@@ -28,12 +28,12 @@
   2. By allowing the addition of edges in a graph during the diffusion process, the diffusion model can be taught to give counterfactual explanations, since it learns how small changes in graph structure changes predictions. This provides a high-level understanding of the effect of edge addition in counterfactual explanations.
   3. The diffusion model is the first graph diffusion model capable of both counterfactual and model-level explanations that are faithful.
 - D4Explainer is capable of counterfactual explanations of GNNs.
-- ![A visualization of the counterfactual explanation process of D4Explainer](images/d4explainer_counterfactual_explanations.png "D4Explainer Counterfactual Explanation")
+![A visualization of the counterfactual explanation process of D4Explainer](https://github.com/daanbrugmans/ru-research-seminar-data-science-23-24/blob/main/d4explainer/images/d4explainer_counterfactual_explanations.png "D4Explainer Counterfactual Explanation")
   - The counterfactual explanation of a GNN starts with a forward diffusion process. The graph $G$ that is the input of the GNN that should be counterfactually explained is taken to be the first step of the forwards diffusion process $G_0$. At every timestep $t \in [0, T]$, noise is added to the graph. This noise is random removal and/or addition of edges between nodes. This means that every $G_{t+1}$ is $G_t$ with new edges added and/or removed. At the end of the forwards diffusion process, we get the fully noisy graph $G_T$. Every graph generated during the forwards diffusion process is used as an input for the denoising process, one graph at a time, going backward from $G_T$.
   - *Denosing process*
   - *Loss function*
 - D4Explainer is capable of model-level explanations of GNNs.
-- ![A visualization of the model-level explanation process of D4Explainer](images/d4explainer_model_level_explanations.png "D4Explainer Model-level Explanation")
+![A visualization of the model-level explanation process of D4Explainer](images/d4explainer_model_level_explanations.png "D4Explainer Model-level Explanation")
   - skunk
 
 # Evidence Given
