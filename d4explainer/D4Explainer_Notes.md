@@ -51,6 +51,18 @@
   - The loss function of D4Explainer's model-level explanation model is the distribution loss $\mathcal{L}_{dist}$. The counterfactual loss $\mathcal{L}_{cf}$ is not used for model-level explanations, since including it would result in the model giving explanations that do not belong to class $C$.
 
 # Evidence Given
+- The proposed method of D4Explainer is evaluated with varying benchmarks and baselines.
+  - D4Explainer's ability to provide both counterfactual and model-level explanations is evaluated on both node classification tasks alongside graph classification tasks. D4Explainer's performance is compared to the performance of other (counter)factual or model-level GNN explanation mechanisms.
+  - 3 synthetic datasets and 1 real-world dataset for node classification are used, while 1 synthetic dataset and 3 real-world datasets are used for graph classification. All synthetic datasets regard classifications of nodes/graphs that belong to a certain type or shape of graphs, such as a cycle, tree, or house. All real-world datasets for graph classification regard the representation of molecules as graphs, with atoms represented as nodes.
+  - For counterfactual explanations, the explanations must be tested on both the in-distribution property and the counterfactual property, in addition to their robustness and diversity. 
+    - The counterfactual property is measured using three metrics: the counterfactual accuracy $CF-ACC$, which is the proportion of generated explanations that changed the model's prediction, the fidelity $FID$, which measures the change in output probability over the original class, and the modification ratio $MR$, which measures the proportion of edges that were added or deleted. 
+    - The in-distribution property is evaluated using the maximum mean discrepancy $MMD$, which can be used to compare graph statistics between the generated counterfactual explanation and the original graph.
+    - Robustness is measured using a Top-$K$ accuracy for counterfactual explanations that are classified correctly irrespective of noise being present in the graph: good counterfactual explanations should be classified consistently even when some noise is present.
+    - Diversity is not measured, but evaluated qualitatively. It is shown that D4Explainer's ability to not only delete, but also create edges during the counterfactual explanation creation process, vastly improves D4Explainer's capability of generating diverse counterfactual explanations. The ability to create edges is novel and adds a new layer of diversity to D4Explainer.
+  - Model-level explanations are evaluated similarly, excluding benchmarks for the counterfactual property, since it is not relevant for model-level explanations.
+    - *two metrics: target class probability $p$ and $Density$, which is the density of the explanation (#edges/#vertices^2)*
+- The evaluations show that D4Explainer consistently performs best in providing counterfactual and model-level explanations.
+  - egg
 
 # Shoulders of Giants
 ## GNN Explainability
