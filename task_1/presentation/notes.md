@@ -59,10 +59,10 @@
     - The in-distribution property is evaluated using the maximum mean discrepancy $MMD$, which can be used to compare graph statistics between the generated counterfactual explanation and the original graph.
     - Robustness is measured using a Top-$K$ accuracy for counterfactual explanations that are classified correctly irrespective of noise being present in the graph: good counterfactual explanations should be classified consistently even when some noise is present.
     - Diversity is not measured, but evaluated qualitatively. It is shown that D4Explainer's ability to not only delete, but also create edges during the counterfactual explanation creation process, vastly improves D4Explainer's capability of generating diverse counterfactual explanations. The ability to create edges is novel and adds a new layer of diversity to D4Explainer.
-  - Model-level explanations are evaluated similarly, excluding benchmarks for the counterfactual property, since it is not relevant for model-level explanations.
-    - *two metrics: target class probability $p$ and $Density$, which is the density of the explanation (#edges/#vertices^2)*
-- The evaluations show that D4Explainer consistently performs best in providing counterfactual and model-level explanations.
-  - egg
+  - Although model-level explanations are also evaluated qualitatively, a different set of benchmarks are considered: the probability $p$ given by the GNN that the explanation belongs to the correct class and the $Density$, which measures the density of edges over nodes in the explanation. A lower density implies a simpler graph, and thus a better explanation.
+- The qualitative evaluations show that D4Explainer consistently performs best in providing counterfactual and model-level explanations.
+  - For counterfactual explanations, D4Explainer scores the highest counterfactual accuracy and fidelity for 7 out of 8 datasets, reaching counterfactual accuracies of over 90%. D4Explainer seems to be a major improvement in the generation of counterfactual explanations for highly complex graphs. Additionally, D4Explainer consistently achieves the lowest $MMD$ measurements, implying that its counterfactual explanations are the most in-distribution.
+  - For model-level explanations, D4Explainer consistently achieves better performance compared to the baseline. It produces model-level explanations that give greater predictions confidences $p$ by the model, while making these explanations be less dense and thus simpler.
 
 # Shoulders of Giants
 ## GNN Explainability
@@ -86,7 +86,11 @@
   - An example of conditional diffusion models used for the generation of in-distribution graphs.
 
 # Impact
+- See slides
 
 # Reproducibility
+- The source code for D4Explainer is publicly available at https://github.com/Graph-and-Geometric-Learning/D4Explainer. The code can be ran from the terminal and offers varying scripts that can be ran, such as training a GNN on a dataset, training a D4Explainer model on a dataset using a trained GNN, and evaluating a trained D4Explainer model.
+- The paper includes hyperparameters for the GNNs and D4Explainer models that were evaluated.
 
 # Conclusion
+- See slides
