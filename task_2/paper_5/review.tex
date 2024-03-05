@@ -1,0 +1,58 @@
+\documentclass{IEEEtran}
+
+\usepackage[margin=0.75in]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+
+\begin{document}
+
+\title{Research Seminar Data Science Task 2 ---\\Paper 5: What the DAAM}
+\author{Daan Brugmans (S1080742)}
+\date{\today}
+
+\maketitle
+
+\section{Summary}
+% as briefly as you can – two or three sentences
+The authors present DAAM, an explainability method for text-to-image diffusion models.
+DAAM is capable of producing 2D heatmaps for every word in a text-to-image prompt by analyzing the cross-attention maps of the diffusion model, visually showing how a word in the prompt has effected which parts of the generated image.
+The authors use DAAM on the Stable Diffusion 2.0 model to study the effect of text prompt syntax on the generated image and how certain linguistic features negatively impact image generation.
+
+\section{Evidence}
+% what evidence is offered to support the claims?
+\begin{itemize}
+    \item The authors perform experiments on DAAM's capability to produce good segmentation masks. Qualitative comparisons to existing state-of-the-art baselines and subjective judgments by human annotators show DAAM's to generate good explanations for varying parts-of-speech and image semantics.
+    \item The authors perform an experiment on the effect of syntax on text-to-image generation by studying how varying head-dependency structures are generally visualized by DAAM, showing that certain head-dependency structures show one word dominating the other in importance for the generated image, implying that certain syntactic structures influence the text-to-image diffusion process.
+    \item The authors perform experiments on the relationship between semantics of text-to-image prompts and feature entanglement in the generated image, showing that the presence of cohyponyms in text prompts cause worse image generation, and that adjectives in prompts affect the generated image in more than just the noun it belongs to.
+\end{itemize}
+
+\section{Strengths}
+\begin{itemize}
+    \item The authors provide the reader preliminaries that teach the reader the required knowledge about latent diffusion model architecture needed to understand their paper, which helps bring the reader up to speed.
+    \item When findings and explanations are provided textually, they are often accompanied by a visualization or formalization to help understanding.
+    \item Experiments measuring both quantitative improvements over baselines and perception by humans in practice
+    \item The conducted experiments are both quantitative through measures and qualitative through human judgments, which makes the results both more concrete as well as more intuitive for end users.
+    \item The qualitative measures used fit the experiments very well and seem very relevant.
+\end{itemize}
+
+\section{Weaknesses}
+\begin{itemize}
+    \item The results of the experiments for the authors' visuosemantic analyses are purely based on manual human annotation, reducing certainty of interpretability.
+\end{itemize}
+
+\section{Evaluation}
+% would you recommend acceptance?
+I would recommend acceptance.
+In clear and concise writing, the authors propose a method for the interpretability of a topically relevant model architecture that improves over existing baselines.
+
+\section{Quality of Writing}
+The main body of the paper is easy to read.
+Mathematical definitions and proofs are kept to a minimum in the main body, only frequently used for the preliminaries required to understand the rest of the paper.
+By placing mathematical definitions, technical details, and auxiliary supplements in appendices, the authors have made their paper, despite what may be considered a challenging topic, an enjoyable read.
+
+\section{Queries}
+\begin{itemize}
+    \item Can the presenters offer a measure for the visuosemantic analyses that would not be dependent on human annotation? If yes, which? If no, for what reason?
+\end{itemize}
+
+\end{document}
