@@ -110,7 +110,7 @@ Adjusting for six confounders of the breastfeeding-IQ relationship.
 Analysis cohort is all singletons and twins.
 IQ15 was not reported for 68% of participants.
 We assessed whether the hypothetical DAG is plausible by exploring the observed relationships between the variables and applied the formula for maximum bias amplification.
-We found that the estimated association between breastfeeding and IQ15 was -0.79.
+We found that the estimated association between maternal smoking and IQ15 was -0.79.
 The key thing when we look at the results is that, when adding an auxiliary variable in our analysis, we introduced a bias.
 The message you should take from our talk is that: when you perform MI, you should not throw all auxiliary variables at the analysis model.
 Pick and choose auxiliary variables carefully, respecting your knowledge, beliefs, and DAG.
