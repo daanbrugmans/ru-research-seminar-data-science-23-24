@@ -1,5 +1,8 @@
 rm(list=ls())
 
+# Install of shiny, knitr, and remotes is required prior to midoc install
+remotes::install_github("elliecurnow/midoc", build_vignettes=TRUE)
+
 library(midoc)
 library(dagitty)
 
